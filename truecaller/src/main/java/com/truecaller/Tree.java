@@ -7,12 +7,12 @@ public class Tree {
     private List<TreeNode> roots = new ArrayList<>();
 
     public void add(String item) {
-        if(roots.isEmpty()) {
+        if (roots.isEmpty()) {
             roots.add(new TreeNode(item));
             return;
         }
         for (TreeNode root : roots) {
-            if(root.setItem(item)) { //already set
+            if (root.setItem(item)) { //already set
                 return;
             }
         }
@@ -21,9 +21,9 @@ public class Tree {
     }
 
     public String search(String input) {
-        for(TreeNode root:roots){
+        for (TreeNode root : roots) {
             final String longestString = root.getLongestString(input);
-            if(longestString != null){
+            if (longestString != null) {
                 return longestString;
             }
         }
