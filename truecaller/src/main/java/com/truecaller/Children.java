@@ -28,4 +28,12 @@ public class Children {
         return true;
     }
 
+    public String getLongestString(String input, String item) {
+        for(TreeNode sibling : siblings){
+            if(sibling.getLongestString(input) != null) {
+                return sibling.getLongestString(input);
+            }
+        }
+        return item;
+    }
 }

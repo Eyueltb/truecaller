@@ -19,4 +19,14 @@ public class Tree {
         TreeNode treeNode = new TreeNode(item);
         roots.add(treeNode);
     }
+
+    public String search(String input) {
+        for(TreeNode root:roots){
+            final String longestString = root.getLongestString(input);
+            if(longestString != null){
+                return longestString;
+            }
+        }
+        return null;
+    }
 }

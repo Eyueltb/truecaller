@@ -19,13 +19,16 @@ public class TreeNode {
     }
 
     public boolean setItem(String newItem) {
-        if(this.children == null){
-            this.children = new Children();
-        }
+       if(newItem != null && !newItem.startsWith(this.item)) {
+           return false;
+       }
         if (this.item == null) {
             this.item = newItem;
             return true;
         } else if (newItem.startsWith(this.item) && !newItem.equals(this.item)){
+            if(this.children == null){
+                this.children = new Children();
+            }
             return children.add(newItem);
         } else if(newItem.equals(this.item)){
             return true;
@@ -36,11 +39,24 @@ public class TreeNode {
     }
 
     public String getLongestString(String input) {
-        //check if it matches the current root   if(input.startsWith(item)) children.search(item)
+        //check if it matches the current root->if(input.startsWith(item)) children.search(item)
         // if yes check in children
         // if no return the current node
-        return null;
-    }
+        if(input != null && !input.startsWith(this.item)) {
+            return null;
+        }
+        else if(input.equals(this.item)){
+            return this.item;
+        } else if(input.startsWith(this.item)) {
+            if(this.getChildren() == null){
+                return this.item;
+            }
+            return this.getChildren().getLongestString(input, this.item);
+        }else{
+            return null;
+        }
+      }
+
 
     @Override
     public boolean equals(Object o) {
