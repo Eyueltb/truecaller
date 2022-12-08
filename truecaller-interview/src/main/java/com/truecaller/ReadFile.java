@@ -12,6 +12,7 @@ import java.util.stream.Stream;
  * To read file, map to lowercase, sort and store in a list
  */
 public class ReadFile {
+
     public List<String> readFromFile(String fileName) {
         List<String> sortedFiles = new ArrayList<>();
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {

@@ -1,7 +1,6 @@
 package com.truecaller;
 
 import lombok.Data;
-
 import java.util.HashMap;
 
 /**
