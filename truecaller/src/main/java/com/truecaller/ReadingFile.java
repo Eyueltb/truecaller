@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * To read file, map to lowercase, sort and store in a list
+ */
 public class ReadingFile {
 
     public List<String> readFromFile(String fileName) {
