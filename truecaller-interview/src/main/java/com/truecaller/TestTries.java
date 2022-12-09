@@ -9,12 +9,12 @@ public class TestTries {
     public static void main(String[] args) {
         ReadFile readFile = new ReadFile();
         List<String> namesFromfile = readFile.readFromFile(FILE);
-        
+
         Trie tries = new Trie();
         for (String str : namesFromfile) {
             tries.insert(str);
         }
-        for (String input:inputs) {
+        for (String input : inputs) {
             System.out.println(input.toLowerCase() + " -> " + tries.getMatchingPrefix(input.toLowerCase()));
        }
     }
