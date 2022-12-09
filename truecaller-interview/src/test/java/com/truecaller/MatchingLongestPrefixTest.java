@@ -1,15 +1,13 @@
 package com.truecaller;
 
-import org.junit.Before;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class MatchingLongestPrefixTest {
 
@@ -28,11 +26,12 @@ class MatchingLongestPrefixTest {
     void test_Longest_prefix_success(){
         //Given
         namesFromfile = readFile.readFromFile(FILE);
+        final List<String> data = inputs.stream().map(String::toLowerCase).collect(Collectors.toList());
         //When
         for (String nameFromFile : namesFromfile){
             trie.insert(nameFromFile);
         }
-        final List<String> data = inputs.stream().map(String::toLowerCase).collect(Collectors.toList());
+
         //Assert
         assertEquals("xyvjed", trie.getMatchingPrefix(data.get(0)));
         assertEquals("kawjzbwa", trie.getMatchingPrefix(data.get(1)));
